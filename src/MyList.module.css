@@ -1,0 +1,23 @@
+.list_container {
+  width: 80vw;
+  margin: 10px auto;
+
+  padding: 30px;
+
+  border: 1px solid gray;
+  border-radius: 10px;
+}
+
+.lists {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.list {
+  border: 3px solid green;
+  border-radius: 15px;
+
+  width: 270px;
+  padding: 10px;
+}
