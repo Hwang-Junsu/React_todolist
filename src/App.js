@@ -1,7 +1,7 @@
-import Layout from "./components/layout/Layout";
+import ToDoList from "./pages/ToDoList";
 
 function App() {
-  return <Layout />;
+  return <ToDoList />;
 }
 
 export default App;

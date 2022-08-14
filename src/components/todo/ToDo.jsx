@@ -10,7 +10,7 @@ const ToDo = ({ id, title, comment, isDone, onClick, onRemove }) => {
           삭제하기
         </button>
         <button className={style.change_button} onClick={() => onClick(id)}>
-          {isDone ? "완료" : "취소"}
+          {isDone ? "취소" : "완료"}
         </button>
       </div>
     </div>
