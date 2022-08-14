@@ -1,17 +1,3 @@
-.list_container {
-  width: 80vw;
-  margin: 10px auto;
-
-  padding: 30px;
-}
-
-.lists {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin: auto;
-}
-
 .list {
   border: 3px solid gray;
   border-radius: 15px;
