@@ -1,8 +1,8 @@
 import style from "./MyList.module.css";
 
-const MyList = ({ toDoList, done }) => {
-  const onClick = () => {
-    done();
+const MyList = ({toDoList, done}) => {
+  const onClick = (target) => {
+    done(target);
   };
   return (
     <div className={style.list_container}>
@@ -13,7 +13,7 @@ const MyList = ({ toDoList, done }) => {
             <h3>{toDo.title}</h3>
             <p>{toDo.comment}</p>
             <button>삭제하기</button>
-            <button onClick={() => (toDo.isDone = !toDo.isDone)}>완료</button>
+            <button onClick={() => onClick(toDo.title)}>완료</button>
           </div>
         ) : null;
       })}
@@ -24,7 +24,7 @@ const MyList = ({ toDoList, done }) => {
             <h3>{toDo.title}</h3>
             <p>{toDo.comment}</p>
             <button>삭제하기</button>
-            <button onClick={onClick}>취소</button>
+            <button onClick={() => onClick(toDo.title)}>취소</button>
           </div>
         ) : null;
       })}

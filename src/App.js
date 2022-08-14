@@ -2,7 +2,7 @@ import React from "react";
 import Header from "./Header";
 import MyList from "./MyList";
 import styles from "./App.module.css";
-import { useState } from "react";
+import {useState} from "react";
 
 function App() {
   const [toDoTitle, setToDoTitle] = useState("");
@@ -11,12 +11,16 @@ function App() {
 
   const addToDo = (event) => {
     let list = [...toDoList];
-    list.push({ title: toDoTitle, comment: toDoComment, isDone: false });
+    list.push({title: toDoTitle, comment: toDoComment, isDone: false});
     setToDoList(list);
     event.preventDefault();
   };
-  const done = (event) => {
-    console.log(event);
+  const done = (id) => {
+    setToDoList(
+      toDoList.map((list) =>
+        list.title === id ? {...list, isDone: !list.isDone} : list
+      )
+    );
   };
   const titleChange = (event) => {
     setToDoTitle(event.target.value);
@@ -24,7 +28,6 @@ function App() {
   const commentChange = (event) => {
     setToDoComment(event.target.value);
   };
-  console.log(toDoList);
   return (
     <div className="App">
       <Header />
