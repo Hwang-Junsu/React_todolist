@@ -3,21 +3,42 @@
   margin: 10px auto;
 
   padding: 30px;
-
-  border: 1px solid gray;
-  border-radius: 10px;
 }
 
 .lists {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
+  margin: auto;
 }
 
 .list {
-  border: 3px solid green;
+  border: 3px solid gray;
   border-radius: 15px;
 
   width: 270px;
+  padding: 20px;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.buttons > button {
+  border: 2px solid;
+  border-radius: 5px;
+  background-color: white;
+
   padding: 10px;
+  width: 120px;
+}
+
+.delete_button {
+  color: tomato;
+}
+.change_button {
+  color: yellowgreen;
 }
