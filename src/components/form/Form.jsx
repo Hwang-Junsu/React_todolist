@@ -1,12 +1,22 @@
 import styles from "./Form.module.css";
+import {useDispatch} from "react-redux";
+import {addToDo as dispatchToDo} from "../../redux/configStore";
 
 const Form = ({
   commentChange,
   titleChange,
-  addToDo,
   toDoTitle,
   toDoComment,
+  inputReset,
 }) => {
+  const dispatch = useDispatch();
+
+  const addToDo = (event) => {
+    dispatch(dispatchToDo({title: toDoTitle, comment: toDoComment}));
+    inputReset();
+    event.preventDefault();
+  };
+
   return (
     <form className={styles.container}>
       <div>

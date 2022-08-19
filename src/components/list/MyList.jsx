@@ -1,13 +1,7 @@
 import style from "./MyList.module.css";
 import ToDo from "../todo/ToDo";
 
-const MyList = ({ toDoList, done, remove }) => {
-  const onClick = (target) => {
-    done(target);
-  };
-  const onRemove = (target) => {
-    remove(target);
-  };
+const MyList = ({toDoList}) => {
   return (
     <div className={style.list_container}>
       <h1>Working.. 🔥</h1>
@@ -20,8 +14,6 @@ const MyList = ({ toDoList, done, remove }) => {
               title={toDo.title}
               comment={toDo.comment}
               isDone={toDo.isDone}
-              onClick={onClick}
-              onRemove={onRemove}
             />
           ) : null;
         })}
@@ -36,8 +28,6 @@ const MyList = ({ toDoList, done, remove }) => {
               title={toDo.title}
               comment={toDo.comment}
               isDone={toDo.isDone}
-              onClick={onClick}
-              onRemove={onRemove}
             />
           ) : null;
         })}
