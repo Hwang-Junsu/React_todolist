@@ -1,14 +1,21 @@
 import React from "react";
-import styles from "./Layout.module.css";
 import Header from "../header/Header";
+import styled from "styled-components";
 
-const Layout = ({ children }) => {
+const LayoutStyle = styled.div`
+  max-width: 1200px;
+  min-width: 800px;
+
+  margin: auto;
+`;
+
+const Layout = ({children}) => {
   return (
-    <div className={styles.layout}>
+    <LayoutStyle>
       <Header />
-      <hr style={{ width: "90%", margin: "40px" }} />
+      <hr style={{width: "90%", margin: "40px"}} />
       <main>{children}</main>
-    </div>
+    </LayoutStyle>
   );
 };
 

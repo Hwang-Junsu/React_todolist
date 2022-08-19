@@ -1,11 +1,31 @@
-import style from "./Header.module.css";
+import styled from "styled-components";
+
+const Title = styled.h1`
+  font-size: 40px;
+`;
+const Tail = styled.h4`
+  position: absolute;
+
+  top: 60%;
+  left: 60%;
+`;
+const HeaderStyle = styled.div`
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  padding: 10px 30px;
+  position: relative;
+`;
 
 const Header = () => {
   return (
-    <div className={style.headerStyle}>
-      <h1 style={{ fontSize: "40px" }}>My Todo List</h1>
-      <h4 className={style.tailStyle}>Made with React</h4>
-    </div>
+    <HeaderStyle>
+      <Title>My Todo List</Title>
+      <Tail>Made with React</Tail>
+    </HeaderStyle>
   );
 };
 

@@ -1,16 +1,63 @@
-import styles from "./Form.module.css";
 import {useDispatch} from "react-redux";
 import {addToDo as dispatchToDo} from "../../redux/configStore";
+import {useState} from "react";
+import styled from "styled-components";
 
-const Form = ({
-  commentChange,
-  titleChange,
-  toDoTitle,
-  toDoComment,
-  inputReset,
-}) => {
+const Container = styled.form`
+  margin: 10px auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  min-width: 800px;
+
+  margin: auto;
+  height: 5rem;
+  padding: 10px 30px;
+
+  border: 1px solid gray;
+  background-color: #eee;
+
+  border-radius: 10px;
+`;
+const Input = styled.label`
+  margin: 10px;
+  input {
+    margin-left: 10px;
+    width: 12rem;
+    height: 2rem;
+    border: none;
+    border-radius: 10px;
+    padding: 5px;
+  }
+`;
+const Btn = styled.button`
+  background-color: green;
+  color: white;
+
+  margin-left: 10px;
+  width: 7rem;
+  height: 2rem;
+  border: none;
+  border-radius: 10px;
+`;
+
+const Form = () => {
   const dispatch = useDispatch();
 
+  const [toDoTitle, setToDoTitle] = useState("");
+  const [toDoComment, setToDoComment] = useState("");
+  const titleChange = (event) => {
+    setToDoTitle(event.target.value);
+  };
+  const commentChange = (event) => {
+    setToDoComment(event.target.value);
+  };
+  const inputReset = () => {
+    setToDoTitle("");
+    setToDoComment("");
+  };
   const addToDo = (event) => {
     dispatch(dispatchToDo({title: toDoTitle, comment: toDoComment}));
     inputReset();
@@ -18,9 +65,9 @@ const Form = ({
   };
 
   return (
-    <form className={styles.container}>
+    <Container>
       <div>
-        <label>
+        <Input>
           <strong>제목</strong>
           <input
             onChange={titleChange}
@@ -28,8 +75,8 @@ const Form = ({
             value={toDoTitle}
             type="text"
           />
-        </label>
-        <label>
+        </Input>
+        <Input>
           <strong>내용</strong>
           <input
             onChange={commentChange}
@@ -37,12 +84,10 @@ const Form = ({
             value={toDoComment}
             type="text"
           />
-        </label>
+        </Input>
       </div>
-      <button onClick={addToDo} className={styles.btn}>
-        추가하기
-      </button>
-    </form>
+      <Btn onClick={addToDo}>추가하기</Btn>
+    </Container>
   );
 };
 

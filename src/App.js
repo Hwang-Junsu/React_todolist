@@ -1,6 +1,6 @@
-import ToDoList from "./pages/ToDoList";
+import Router from "./Router";
 
 function App() {
-  return <ToDoList />;
+  return <Router />;
 }
 export default App;

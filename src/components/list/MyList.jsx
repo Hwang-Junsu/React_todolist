@@ -1,11 +1,28 @@
-import style from "./MyList.module.css";
 import ToDo from "../todo/ToDo";
+import {useSelector} from "react-redux";
+import styled from "styled-components";
 
-const MyList = ({toDoList}) => {
+const ListContainer = styled.div`
+  width: 100%;
+  margin: 10px auto;
+
+  padding: 30px;
+`;
+const List = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: auto;
+`;
+const Status = styled.h1``;
+
+const MyList = () => {
+  const toDoList = useSelector((state) => state);
+
   return (
-    <div className={style.list_container}>
-      <h1>Working.. 🔥</h1>
-      <div className={style.lists}>
+    <ListContainer>
+      <Status>Working.. 🔥</Status>
+      <List>
         {toDoList.map((toDo) => {
           return !toDo.isDone ? (
             <ToDo
@@ -17,9 +34,9 @@ const MyList = ({toDoList}) => {
             />
           ) : null;
         })}
-      </div>
-      <h1>Done..! 🎉</h1>
-      <div className={style.lists}>
+      </List>
+      <Status>Done..! 🎉</Status>
+      <List>
         {toDoList.map((toDo) => {
           return toDo.isDone ? (
             <ToDo
@@ -31,8 +48,8 @@ const MyList = ({toDoList}) => {
             />
           ) : null;
         })}
-      </div>
-    </div>
+      </List>
+    </ListContainer>
   );
 };
 

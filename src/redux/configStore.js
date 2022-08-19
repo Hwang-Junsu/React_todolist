@@ -2,8 +2,8 @@ import {createStore} from "redux";
 
 const initialData = {
   id: 0,
-  title: "title",
-  comment: "comment",
+  title: "투두리스트",
+  comment: "투두리스트 페이지를 완성시키자.",
   isDone: false,
 };
 
@@ -36,7 +36,6 @@ const reducer = (state = [initialData], action) => {
     case ADD:
       return [
         {
-          text: action.type,
           title: action.text.title,
           comment: action.text.comment,
           id: Date.now(),

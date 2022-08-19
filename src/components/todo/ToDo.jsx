@@ -1,6 +1,31 @@
-import style from "./ToDo.module.css";
 import {useDispatch} from "react-redux";
 import {deleteToDo, doneToDo} from "../../redux/configStore";
+import {Link} from "react-router-dom";
+import styled from "styled-components";
+
+const Box = styled.div`
+  border: 3px solid gray;
+  border-radius: 15px;
+
+  width: 320px;
+  padding: 20px;
+`;
+const Buttons = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+
+  Button {
+    border: 2px solid;
+    border-radius: 5px;
+    padding: 10px;
+    width: 120px;
+  }
+`;
+const Button = styled.button`
+  color: ${(props) => (props.isDelete ? "#e84118" : "#4cd137")};
+`;
 
 const ToDo = ({id, title, comment, isDone}) => {
   const dispatch = useDispatch();
@@ -12,18 +37,19 @@ const ToDo = ({id, title, comment, isDone}) => {
     dispatch(deleteToDo({id}));
   };
   return (
-    <div className={style.list}>
+    <Box>
+      <Link to={`/${id}`}>상세보기</Link>
       <h3>{title}</h3>
       <p>{comment}</p>
-      <div className={style.buttons}>
-        <button className={style.delete_button} onClick={() => remove(id)}>
+      <Buttons>
+        <Button isDelete={true} onClick={() => remove(id)}>
           삭제하기
-        </button>
-        <button className={style.change_button} onClick={() => done(id)}>
+        </Button>
+        <Button isDelete={false} onClick={() => done(id)}>
           {isDone ? "취소" : "완료"}
-        </button>
-      </div>
-    </div>
+        </Button>
+      </Buttons>
+    </Box>
   );
 };
 
