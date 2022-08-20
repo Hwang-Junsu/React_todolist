@@ -2,6 +2,7 @@ import { useNavigate, useLocation } from "react-router";
 import styled from "styled-components";
 
 const Box = styled.div`
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -13,6 +14,12 @@ const Box = styled.div`
 
   border: 1px solid ${(props) => (props.isDone ? "#4cd137" : "#e84118")};
   border-radius: 15px;
+`;
+const IdBox = styled.p`
+  position: absolute;
+  left: 20px;
+  top: 10px;
+  font-size: 12px;
 `;
 const GoBackBtn = styled.button`
   padding: 10px;
@@ -35,6 +42,7 @@ function Detail() {
 
   return (
     <Box isDone={toDo.isDone}>
+      <IdBox>ID : {toDo.id}</IdBox>
       <h1>{toDo.title}</h1>
       <CheckDone>{toDo.isDone ? "✅" : "❌"}</CheckDone>
       <h2>{toDo.comment}</h2>
