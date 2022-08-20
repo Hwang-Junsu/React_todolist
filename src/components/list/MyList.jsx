@@ -1,8 +1,7 @@
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 import ToDo from "../todo/ToDo";
-import {useDispatch, useSelector} from "react-redux";
+import { useSelector } from "react-redux";
 import styled from "styled-components";
-import {loadTodolist} from "../../redux/modules/todolist";
 
 const ListContainer = styled.div`
   width: 100%;
@@ -19,10 +18,6 @@ const List = styled.div`
 const Status = styled.h1``;
 
 const MyList = () => {
-  const dispatch = useDispatch();
-  React.useEffect(() => {
-    dispatch(loadTodolist());
-  }, []);
   const toDoList = useSelector((state) => state.todolist);
 
   return (

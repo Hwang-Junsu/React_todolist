@@ -1,7 +1,8 @@
-import React from "react";
-import {useParams, useNavigate} from "react-router";
-import {useSelector} from "react-redux";
+import React, { useEffect } from "react";
+import { useParams, useNavigate } from "react-router";
+import { useSelector, useDispatch } from "react-redux";
 import styled from "styled-components";
+import { loadTodolist } from "../../redux/modules/todolist";
 
 const Box = styled.div`
   display: flex;
@@ -31,9 +32,15 @@ const CheckDone = styled.span`
 `;
 
 function Detail() {
-  const {id} = useParams();
-  const list = useSelector((state) => state);
-  const toDo = list[list.findIndex((x) => +x.id === +id)];
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(loadTodolist());
+  }, []);
+
+  const { id } = useParams();
+  const list = useSelector((state) => state.todolist);
+  console.log(list);
+  const toDo = list[list.findIndex((x) => String(x.id) === String(id))];
   const navigate = useNavigate();
   return (
     <Box isDone={toDo.isDone}>

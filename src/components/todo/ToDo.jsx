@@ -1,6 +1,6 @@
-import {useDispatch} from "react-redux";
-import {deleteToDo, doneToDo, updateToDoFB} from "../../redux/modules/todolist";
-import {Link} from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { deleteToDoFB, updateToDoFB } from "../../redux/modules/todolist";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const Box = styled.div`
@@ -27,14 +27,14 @@ const Button = styled.button`
   color: ${(props) => (props.isDelete ? "#e84118" : "#4cd137")};
 `;
 
-const ToDo = ({id, title, comment, isDone}) => {
+const ToDo = ({ id, title, comment, isDone }) => {
   const dispatch = useDispatch();
 
   const done = (id) => {
     dispatch(updateToDoFB(id));
   };
   const remove = (id) => {
-    dispatch(deleteToDo({id}));
+    dispatch(deleteToDoFB(id));
   };
   return (
     <Box>

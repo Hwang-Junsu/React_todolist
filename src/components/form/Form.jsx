@@ -1,6 +1,6 @@
-import {useDispatch} from "react-redux";
-import {addToDo as dispatchToDo, addToDoFB} from "../../redux/modules/todolist";
-import {useState} from "react";
+import { useDispatch } from "react-redux";
+import { addToDoFB } from "../../redux/modules/todolist";
+import { useState } from "react";
 import styled from "styled-components";
 
 const Container = styled.form`
@@ -60,7 +60,11 @@ const Form = () => {
   };
   const addToDo = (event) => {
     dispatch(
-      addToDoFB({title: toDoTitle, comment: toDoComment, isDone: false})
+      addToDoFB({
+        title: toDoTitle,
+        comment: toDoComment,
+        isDone: false,
+      })
     );
     inputReset();
     event.preventDefault();
