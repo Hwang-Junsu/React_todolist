@@ -1,5 +1,5 @@
 import {useDispatch} from "react-redux";
-import {deleteToDo, doneToDo} from "../../redux/configStore";
+import {deleteToDo, doneToDo, updateToDoFB} from "../../redux/modules/todolist";
 import {Link} from "react-router-dom";
 import styled from "styled-components";
 
@@ -31,7 +31,7 @@ const ToDo = ({id, title, comment, isDone}) => {
   const dispatch = useDispatch();
 
   const done = (id) => {
-    dispatch(doneToDo({id, isDone}));
+    dispatch(updateToDoFB(id));
   };
   const remove = (id) => {
     dispatch(deleteToDo({id}));

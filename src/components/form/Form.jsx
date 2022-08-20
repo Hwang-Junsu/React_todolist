@@ -1,5 +1,5 @@
 import {useDispatch} from "react-redux";
-import {addToDo as dispatchToDo} from "../../redux/configStore";
+import {addToDo as dispatchToDo, addToDoFB} from "../../redux/modules/todolist";
 import {useState} from "react";
 import styled from "styled-components";
 
@@ -59,7 +59,9 @@ const Form = () => {
     setToDoComment("");
   };
   const addToDo = (event) => {
-    dispatch(dispatchToDo({title: toDoTitle, comment: toDoComment}));
+    dispatch(
+      addToDoFB({title: toDoTitle, comment: toDoComment, isDone: false})
+    );
     inputReset();
     event.preventDefault();
   };
