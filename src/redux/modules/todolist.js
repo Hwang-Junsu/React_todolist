@@ -9,12 +9,6 @@ import {
   deleteDoc,
 } from "firebase/firestore";
 
-const initialData = {
-  title: "투두리스트",
-  comment: "투두리스트 페이지를 완성시키자.",
-  isDone: false,
-};
-
 //Actions
 const LOAD = "LOAD";
 const ADD = "ADD";

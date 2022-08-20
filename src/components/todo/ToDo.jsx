@@ -38,7 +38,9 @@ const ToDo = ({ id, title, comment, isDone }) => {
   };
   return (
     <Box>
-      <Link to={`/${id}`}>상세보기</Link>
+      <Link to={`/${id}`} state={{ id, title, comment, isDone }}>
+        상세보기
+      </Link>
       <h3>{title}</h3>
       <p>{comment}</p>
       <Buttons>
