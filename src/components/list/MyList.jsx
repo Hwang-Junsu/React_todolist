@@ -1,6 +1,6 @@
 import React from "react";
 import ToDo from "../todo/ToDo";
-import {useSelector} from "react-redux";
+import { useSelector } from "react-redux";
 import styled from "styled-components";
 
 const ListContainer = styled.div`
@@ -18,7 +18,7 @@ const List = styled.div`
 const Status = styled.h1``;
 
 const MyList = () => {
-  const toDoList = useSelector((state) => state.todolist);
+  const toDoList = useSelector((state) => state.toDoList);
 
   return (
     <ListContainer>

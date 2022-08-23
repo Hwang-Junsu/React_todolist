@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { deleteToDoFB, updateToDoFB } from "../../redux/modules/todolist";
+import { deleteToDoFB, updateToDoFB } from "../../redux/modules/todoSlice";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
