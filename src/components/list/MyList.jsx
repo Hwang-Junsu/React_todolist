@@ -22,7 +22,7 @@ const MyList = () => {
 
   return (
     <ListContainer>
-      <Status>Working.. 🔥</Status>
+      <Status>ToDo !! 🔥</Status>
       <List>
         {toDoList.map((toDo) => {
           return !toDo.isDone ? (

@@ -1,6 +1,7 @@
 import { useDispatch } from "react-redux";
 import { addToDoFB } from "../../redux/modules/todoSlice";
 import { useState } from "react";
+import AddCircleOutlineIcon from "@material-ui/icons/AddCircleOutline";
 import styled from "styled-components";
 
 const Container = styled.form`
@@ -20,6 +21,7 @@ const Container = styled.form`
   background-color: #eee;
 
   border-radius: 10px;
+  box-shadow: 4px 4px gray;
 `;
 const Input = styled.label`
   margin: 10px;
@@ -92,7 +94,9 @@ const Form = () => {
           />
         </Input>
       </div>
-      <Btn onClick={addToDo}>추가하기</Btn>
+      <Btn onClick={addToDo}>
+        <AddCircleOutlineIcon />
+      </Btn>
     </Container>
   );
 };
