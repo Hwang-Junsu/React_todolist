@@ -1,6 +1,6 @@
 import React from "react";
 import ToDo from "../todo/ToDo";
-import { useSelector } from "react-redux";
+import {useSelector} from "react-redux";
 import styled from "styled-components";
 
 const ListContainer = styled.div`
